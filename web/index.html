@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agente de Registro de Contratos</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="barra">
+    <div class="marca">
+      <span class="logo" aria-hidden="true">◉</span>
+      <div>
+        <h1>Registro de Contratos Vigentes</h1>
+        <p id="estado-modelo" class="sub">Conectando…</p>
+      </div>
+    </div>
+    <div class="acciones">
+      <input id="clave" type="password" placeholder="Clave de acceso" autocomplete="off" hidden />
+      <button id="btn-archivos" class="sec" type="button">Archivos generados</button>
+      <button id="btn-nueva" class="sec" type="button" title="Borra la sesión y el contenido de out/">Reiniciar demo</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="chat" aria-label="Conversación">
+      <div id="mensajes" class="mensajes" aria-live="polite"></div>
+
+      <div id="pensando" class="pensando" hidden>
+        <span class="puntos"><i></i><i></i><i></i></span> El agente está pensando y ejecutando herramientas…
+      </div>
+
+      <div id="aviso-confirmacion" class="aviso-confirm" hidden>
+        ⚠ El agente espera tu confirmación para registrar campos de baja confianza. Responde con claridad (por ejemplo: “confirmo el valor 0 y la fecha fin 2027-08-31”).
+      </div>
+
+      <form id="form" class="entrada">
+        <textarea id="texto" rows="2" maxlength="4000" placeholder="Escribe un mensaje… (Enter envía, Shift+Enter salto de línea)"></textarea>
+        <div class="botones">
+          <button id="btn-ejemplo" class="sec" type="button">Usar prompt de ejemplo</button>
+          <button id="btn-enviar" type="submit">Enviar</button>
+        </div>
+      </form>
+    </section>
+
+    <aside id="panel" class="panel" hidden>
+      <div class="panel-cab">
+        <strong>Archivos de out/</strong>
+        <button id="cerrar-panel" class="sec" type="button" aria-label="Cerrar panel">✕</button>
+      </div>
+      <div class="pestanas" role="tablist">
+        <button data-f="alertas" class="activa" type="button">alertas.md</button>
+        <button data-f="maestro" type="button">maestro</button>
+        <button data-f="historial" type="button">historial</button>
+        <button data-f="log" type="button">log</button>
+      </div>
+      <pre id="contenido-archivo" class="archivo">Selecciona un archivo.</pre>
+    </aside>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
